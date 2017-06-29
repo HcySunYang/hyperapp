@@ -5,6 +5,7 @@ In this section we'll implement a simple Tweetbox clone and learn how to assembl
 [Try it online](https://codepen.io/hyperapp/pen/bgWBdV?editors=0010)
 
 ```jsx
+
 const MAX_LENGTH = 120
 const OFFSET = 10
 
@@ -61,11 +62,11 @@ app({
     count: MAX_LENGTH
   },
   view: (state, actions) =>
-	  <Tweetbox
-	    text={state.text}
-	    count={state.count}
-	    update={e => actions.update(e.target.value)}
-	  />,
+    <Tweetbox
+      text={state.text}
+      count={state.count}
+      update={e => actions.update(e.target.value)}
+    />,
   actions: {
     update: (state, actions, text) => ({
       text,
@@ -78,19 +79,19 @@ app({
 The state stores the text of the message and the number of remaining characters `count`, initialized to `MAX_LENGTH`.
 
 ```js
-  state: {
-    text: "",
-    count: MAX_LENGTH
-  }
+state: {
+  text: "",
+  count: MAX_LENGTH
+}
 ```
 
 The view consists of our custom TweetBox tag. We use the attributes, often referred to as _props_, to pass down data into the widget.
 
 ```jsx
 <Tweetbox
-	text={state.text}
-	count={state.count}
-	update={e => actions.update(e.target.value)}
+  text={state.text}
+  count={state.count}
+  update={e => actions.update(e.target.value)}
 />
 ```
 
@@ -108,10 +109,10 @@ When `state.count` becomes 0 or less, we know the `state.text` must be as long o
 
 ```jsx
 <button
-	onclick={() => alert(text)}
-	disabled={count >= MAX_LENGTH || count <= 0}
+  onclick={() => alert(text)}
+  disabled={count >= MAX_LENGTH || count <= 0}
 >
-	Tweet
+  Tweet
 </button>
 ```
 
